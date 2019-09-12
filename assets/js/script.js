@@ -1,9 +1,10 @@
 (function () {
-    let searchRequest = prompt("enter pokemon");
-    let fetchStringPoke = `https://pokeapi.co/api/v2/pokemon/${searchRequest}`;
+    document.getElementById("button").addEventListener("click", function () {
+        let searchRequest = document.getElementById("input").value;
+        let fetchStringPoke = `https://pokeapi.co/api/v2/pokemon/${searchRequest}`;
 
-    fetchPokemon(fetchStringPoke);
-
+        fetchPokemon(fetchStringPoke);
+    });
 
     //Get the pokemon defined by the name or id in the fetchStringPoke
     function fetchPokemon(fetchStringPoke) {
@@ -12,66 +13,70 @@
                 return response.json();
             })
             .then(function (pokemon) {
-                let name = pokemon.name;
-                let id = pokemon.id;
-                let moves = pokemon.moves;
-                let sprites = pokemon.sprites.front_default;
-                //let species = pokemon.species;
-                let fetchStringSpecies = pokemon.species.url;
-                //let previousSpecies = pokemon.species.evolves_from_species.name;
+                let name = pokemon.name; //string with the pokemon name
+                let id = pokemon.id; //integer value of the id of the pokemon
+                let moves = pokemon.moves; // an array with all the moves of a pokemon
+                let sprites = pokemon.sprites.front_default; // a url with the link to the default image of the pokemon
+                let fetchStringSpecies = pokemon.species.url; //a url linking to the species json file
 
                 console.log(name, id);
                 console.log(moves);
                 console.log(sprites);
-                //console.log(species);
-                //let previousSpecies = fetchPokemonSpecies(fetchStringSpecies);
-                //console.log("test");
-                //console.log(previousSpecies);
-                //fetchPokemonSpecies(fetchStringSpecies);
 
-                let previousName = "";
-
-
-                fetch(fetchStringSpecies)
-                    .then(function (response) {
-                        return response.json();
-                    })
-                    .then(function (species) {
-                        //console.log(species);
-                        //console.log(species.evolves_from_species.name);
-                        previousName = species.evolves_from_species.name;
-                        //console.log(previousEvo)
-                        //let fetchStringEvo = species.evolution_chain.url;
-
-                        //fetchPokeEvoChain(fetchStringEvo);
-                        //return previousEvo;
-                    });
-                console.log("test");
-                console.log(previousName);
+                //Go and get the species Json
+                fetchSpecies(fetchStringSpecies);
+                //getMoves(pokemon);
+                document.getElementById("firstmoves").innerText = getMoves(pokemon);
+                document.getElementById("pokemonpic").setAttribute("src", sprites);
 
             })
     }
 
-    //Get the Species of the pokemon defined by ID in the fetchStringSpecies
-    /*function fetchPokemonSpecies(fetchStringSpecies) {
+    //Fetch the previous pokemon in the evolution
+    function fetchPreviousInEvo(fetchStringPreviousInEvo) {
+        fetch(fetchStringPreviousInEvo)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (previousInEvoPokemon) {
+                let name = previousInEvoPokemon.name; //string with the pokemon name
+                let sprites = previousInEvoPokemon.sprites.front_default; // a url with the link to the default image of the pokemon
+
+                console.log(name);
+                console.log(sprites);
+            })
+    }
+
+    //Get Moves, this should get 4 moves from the pokemon, can be the first 4, or 4 random ones, doesn't matter much
+    function getMoves(pokemon) {
+        let moves="";
+        for (let i = 0; i<4; i++){
+            console.log(pokemon.moves[i].move.name);
+            moves += pokemon.moves[i].move.name + ", ";
+        }
+        return moves;
+    }
+
+    //Fetches the species Json file
+    function fetchSpecies(fetchStringSpecies) {
         fetch(fetchStringSpecies)
             .then(function (response) {
                 return response.json();
             })
             .then(function (species) {
-                console.log(species);
-                console.log(species.evolves_from_species.name);
 
-                previousEvo = species.evolves_from_species.url;
-                console.log(previousEvo)
-                //let fetchStringEvo = species.evolution_chain.url;
-
-                //fetchPokeEvoChain(fetchStringEvo);
-                //return previousEvo;
-            })
-    }*/
+                //check if the current species evolved from another species
+                if (species.evolves_from_species) {
+                    //
+                    fetchPreviousInEvo(`https://pokeapi.co/api/v2/pokemon/${species.evolves_from_species.name}`);
+                }else {
+                    console.log("I am the first of my species")
+                }
+            });
+    }
 
     //Get the Species of the pokemon defined by ID in the fetchStringEvo
+
     function fetchPokeEvoChain(fetchStringEvo) {
         fetch(fetchStringEvo)
             .then(function (response) {
