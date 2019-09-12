@@ -1,5 +1,46 @@
-.card-deck{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-    grid-gap: .5rem;
+
+ body {
+    background-image: url("background.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: 'PT Serif', serif;
 }
+
+.container .mt-5 {
+
+    margin-top: 9rem !important;
+
+}
+
+.card {
+
+    height: 20rem !important;
+}
+
+.arrow {
+    margin-left: 15rem !important;
+}
+
+.evolutioncon{
+    height: 30rem !important;
+}
+
+.evolution1 {
+    height: 15rem !important;
+}
+.card .evolution1 .border .border-primary{
+    position: relative;
+}
+h6 {
+    position: absolute;
+    top: 12rem;
+    left: 0;
+}
+
+/* arrows*/
+ .page-link {
+     width: 10rem !important;
+ }
+ .pagination {
+     margin-left: -3rem !important;
+ }
