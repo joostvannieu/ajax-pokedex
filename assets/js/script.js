@@ -22,9 +22,9 @@
                 let sprites = pokemon.sprites.front_default; // a url with the link to the default image of the pokemon
                 let fetchStringSpecies = pokemon.species.url; //a url linking to the species json file
 
-                console.log(name, id);
+                /*console.log(name, id);
                 console.log(moves);
-                console.log(sprites);
+                console.log(sprites);*/
 
                 //Go and get the species Json
                 fetchSpecies(fetchStringSpecies);
@@ -35,6 +35,20 @@
                 document.getElementById("firstweight").innerText = weight + " kg";
                 document.getElementById("firstmoves").innerText = getMoves(pokemon);
                 document.getElementById("pokemonpic").setAttribute("src", sprites);
+
+                document.getElementById("previous").addEventListener("click", function () {
+                    document.getElementById("evolution").innerHTML = "";
+                    if (id !== 1) {
+                        let newFetchString = `https://pokeapi.co/api/v2/pokemon/${--id}`;
+                        fetchPokemon(newFetchString);
+                    }
+                });
+                document.getElementById("next").addEventListener("click", function () {
+                    document.getElementById("evolution").innerHTML = "";
+                        let newFetchString = `https://pokeapi.co/api/v2/pokemon/${++id}`;
+                        fetchPokemon(newFetchString);
+
+                })
             })
     }
 
@@ -48,17 +62,19 @@
                 let name = previousInEvoPokemon.name; //string with the pokemon name
                 let sprites = previousInEvoPokemon.sprites.front_default; // a url with the link to the default image of the pokemon
 
-                console.log(name);
-                console.log(sprites);
+                /*console.log(name);
+                console.log(sprites);*/
                 fillTemplate(previousInEvoPokemon);
             })
     }
+
+    //
 
     //Get Moves, this should get 4 moves from the pokemon, can be the first 4, or 4 random ones, doesn't matter much
     function getMoves(pokemon) {
         let moves="";
         for (let i = 0; i<4; i++){
-            console.log(pokemon.moves[i].move.name);
+            //console.log(pokemon.moves[i].move.name);
             moves += pokemon.moves[i].move.name + "\n ";
         }
         return moves;
@@ -77,7 +93,7 @@
                     //
                     fetchPreviousInEvo(`https://pokeapi.co/api/v2/pokemon/${species.evolves_from_species.name}`);
                 }else {
-                    console.log("I am the first of my species")
+                    //console.log("I am the first of my species")
                 }
             });
     }
@@ -106,7 +122,7 @@
                 console.log("third: ");
                 console.log(thirdEvoSpecies);*/
                 let evoChain = [firstEvoSpecies, secondEvoSpecies, thirdEvoSpecies];
-                console.log(evoChain);
+                //console.log(evoChain);
                 return evoChain;
             })
     }

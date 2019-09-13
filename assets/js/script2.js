@@ -5,6 +5,7 @@ function fillTemplate(pokemonprevious) {
     //Fill the template and append it to the HTML DOM
     let template = document.querySelector('#template');
     let evoTemplate= document.querySelector("#evolution");
+    evoTemplate.innerHTML = "";
 
     // in template get id of h tag and picture
     let evoName1 = template.content.querySelector(".evoname1");
