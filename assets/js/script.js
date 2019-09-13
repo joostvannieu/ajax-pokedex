@@ -28,14 +28,13 @@
 
                 //Go and get the species Json
                 fetchSpecies(fetchStringSpecies);
-                //getMoves(pokemon);
+
+                //put Pokemon info in HTML
                 document.getElementById("firstname").innerText = name;
                 document.getElementById("firstid").innerText = id;
                 document.getElementById("firstweight").innerText = weight + " kg";
                 document.getElementById("firstmoves").innerText = getMoves(pokemon);
                 document.getElementById("pokemonpic").setAttribute("src", sprites);
-
-
             })
     }
 
