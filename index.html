@@ -48,8 +48,8 @@
 
                     <p class="card-text text-left ">Name: <span id="firstname" class="pokeinfo"></span></p>
                     <p class="card-text text-left ">Id: <span id="firstid" class="pokeinfo"></span></p>
-                    <p class="card-text text-left ">Gender: <span id="firstgender" class="pokeinfo"></span></p>
-                    <p class="card-text text-left ">Moves: <span id="firstmoves" class="pokeinfo"></span></p>
+                    <p class="card-text text-left ">Weight: <span id="firstweight" class="pokeinfo"></span></p>
+                    <p class="card-text text-left ">Moves: <br><span id="firstmoves" class="pokeinfo"></span></p>
 
                 </div>
 
@@ -69,79 +69,25 @@
         <li class="page-item"><a id="next" class="page-link text-center" href="#">Next</a></li>
     </ul>
 </nav>
+<div id="evolution"></div>
 
 <!-- template and  evolution-->
-<template>
+<template id="template">
 <div class="container mt-5 evolutioncon ">
-
     <div class="row justify-content-center mt-5">
         <!-- 1 card -->
         <div class=" col-md-3 ">
 
             <div class="card evolution1 border border-primary ">
-                <img id="evopic1" class="card-img-top " src="pikachu.svg" alt="pokemon picture">
+                <img class="card-img-top evopic1" src="pikachu.svg" alt="pokemon picture">
                 <div class="card-body text-left ">
-                    <h6 class="card-text text-left " >Name:<span id="evonname1"></span></h6>
+                    <h6 class="card-text text-left " >Name: <span class="evoname1"></span></h6>
                 </div>
 
             </div>
 
         </div>
-        <!--  2 card -->
-
-        <div class=" col-md-3 ">
-
-            <div class="card evolution1 border border-primary  ">
-
-                <img id="evopic2" class="card-img-top icons" src="pikachu.svg" alt="pokemon picture">
-
-                <div class="card-body text-center">
-                    <h6 class="card-text text-left " >Name:<span id="evoname2"></span></h6>
-
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- 3 card -->
-
-        <div class=" col-md-3">
-
-            <div class="card evolution1 border border-primary ">
-
-                <img id="evopic3" class="card-img-top icons" src="pikachu.svg" alt="pokemon picture">
-
-                <div class="card-body text-center">
-                    <h6 class="card-text text-left " >Name:<span id="evoname3"></span></h6>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-        <!-- 4 card -->
-        <div class=" col-md-3">
-
-            <div class="card evolution1 border border-primary ">
-
-                <img id="evopic4" class="card-img-top icons" src="pikachu.svg" alt="pokemon pic">
-
-                <div class="card-body text-center">
-
-                    <h6 class="card-text text-left " >Name:<span id="evoname4"></span></h6>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
     </div>
-
 </div>
 </template>
 
@@ -149,6 +95,7 @@
 
 
 
+<script src="./assets/js/script2.js"></script>
 
 <script src="./assets/js/script.js"></script>
 </body>
