@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pokédex</title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
     <!-- Bootstrap CSS -->
@@ -29,7 +29,7 @@
         <!-- 1 card -->
         <div class=" col-md-6  ">
 
-            <div class="card border border-primary rounded">
+            <div class="card border border-primary rounded shadow-lg p-3 mb-0 bg-light ">
 
                 <img  id="pokemonpic" class="card-img icons" src="pikachu.svg" alt="pokemon picture">
 
@@ -46,10 +46,10 @@
 
                     <h5 class="card-title">Pokemon Information</h5>
 
-                    <p class="card-text text-left ">Name: <span id="firstname" class="pokeinfo"></span></p>
-                    <p class="card-text text-left ">Id: <span id="firstid" class="pokeinfo"></span></p>
-                    <p class="card-text text-left ">Weight: <span id="firstweight" class="pokeinfo"></span></p>
-                    <p class="card-text text-left ">Moves: <br><span id="firstmoves" class="pokeinfo"></span></p>
+                    <p class="card-text text-left font-weight-bold ">Name: <span id="firstname" class=" text-dark pokeinfo font-weight-normal text-capitalize "></span></p>
+                    <p class="card-text text-left font-weight-bold">Id: <span id="firstid" class="text-dark pokeinfo font-weight-normal"></span></p>
+                    <p class="card-text text-left font-weight-bold">Weight: <span id="firstweight" class=" text-dark pokeinfo font-weight-normal"></span></p>
+                    <p class="card-text text-left font-weight-bold ">Moves: <br><span id="firstmoves" class=" text-dark pokeinfo font-weight-normal"></span></p>
 
                 </div>
 
@@ -73,15 +73,15 @@
 
 <!-- template and  evolution-->
 <template id="template">
-<div class="container mt-5 evolutioncon ">
-    <div class="row justify-content-center mt-5">
+<div class="container mt-0 evolutioncon  ">
+    <div class="row justify-content-center mt-0">
         <!-- 1 card -->
         <div class=" col-md-3 ">
 
             <div class="card evolution1 border border-primary ">
                 <img class="card-img-top evopic1" src="pikachu.svg" alt="pokemon picture">
                 <div class="card-body text-left ">
-                    <h6 class="card-text text-left " >Name: <span class="evoname1"></span></h6>
+                    <h6 class="card-text text-center " >Name: <span class="text-capitalize text-dark evoname1"></span></h6>
                 </div>
 
             </div>

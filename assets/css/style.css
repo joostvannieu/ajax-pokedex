@@ -3,7 +3,8 @@
     background-image: url("background.jpg");
      background-repeat: no-repeat;
      background-size: cover;
-     font-family: 'PT Serif', serif;
+     font-family: 'Exo 2', sans-serif;
+     color:#008080 ;
 }
 
 .container .mt-5 {
@@ -25,17 +26,7 @@
     height: 30rem !important;
 }
 
-.evolution1 {
-    height: 15rem !important;
-}
-.card .evolution1 .border .border-primary{
-    position: relative;
-}
-h6 {
-    position: absolute;
-    top: 12rem;
-    left: 0;
-}
+
 
 /* arrows*/
  .page-link {
@@ -43,4 +34,8 @@ h6 {
  }
  .pagination {
      margin-left: -3rem !important;
+ }
+
+ .pointer {
+ cursor: pointer;
  }
