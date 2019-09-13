@@ -1,6 +1,6 @@
 (function () {
     document.getElementById("button").addEventListener("click", function () {
-        let searchRequest = document.getElementById("input").value;
+        let searchRequest = document.getElementById("input").value.toLowerCase();
         let fetchStringPoke = `https://pokeapi.co/api/v2/pokemon/${searchRequest}`;
         document.getElementById("evolution").innerHTML = "";
 
@@ -18,7 +18,7 @@
                 let id = pokemon.id; //integer value of the id of the pokemon
                // let gender = getGender(pokemon); //Gets the gender of a pokemon
                 let weight = pokemon.weight;
-                let moves = pokemon.moves; // an array with all the moves of a pokemon
+                //let moves = pokemon.moves; // an array with all the moves of a pokemon
                 let sprites = pokemon.sprites.front_default; // a url with the link to the default image of the pokemon
                 let fetchStringSpecies = pokemon.species.url; //a url linking to the species json file
 
@@ -59,9 +59,8 @@
                 return response.json();
             })
             .then(function (previousInEvoPokemon) {
-                let name = previousInEvoPokemon.name; //string with the pokemon name
-                let sprites = previousInEvoPokemon.sprites.front_default; // a url with the link to the default image of the pokemon
-
+                //let name = previousInEvoPokemon.name; //string with the pokemon name
+                //let sprites = previousInEvoPokemon.sprites.front_default; // a url with the link to the default image of the pokemon
                 /*console.log(name);
                 console.log(sprites);*/
                 fillTemplate(previousInEvoPokemon);
@@ -74,8 +73,14 @@
     function getMoves(pokemon) {
         let moves="";
         for (let i = 0; i<4; i++){
-            //console.log(pokemon.moves[i].move.name);
-            moves += pokemon.moves[i].move.name + "\n ";
+            let numberOfMoves = pokemon.moves.length;
+            console.log(pokemon.moves.length);
+            if (pokemon.moves.length) {
+                let randomIndex = Math.floor(Math.random() * numberOfMoves);
+                console.log(randomIndex);
+                let move = pokemon.moves.splice(randomIndex, 1);
+                moves += move[0].move.name + "\n ";
+            }
         }
         return moves;
     }
